@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "includes/inc_head_tag_contents.html" %}
+    {% block head %}
+    <link rel="stylesheet" href="style.css" />
+      <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+    <title>Cailin Smart {% block title %}{% endblock %}</title>
+    <meta name="description" content="{% block description %}{% endblock %}">
+</head>
+    {% endblock %}
+</head>
+<body>
+    <div id="content">{% block content %}{% endblock %}</div>
+    <div class="signup-footer justify-content-center" id="footer">
+      {% block footer %}
+      <footer class="col-12 page-footer font-small special-color-dark col-md-auto">
+        <div class="row justify-content-md-center">
+          <div class="col-xl-4 col-lg-8 col-md-12 12 py-4">
+            <div class="row justify-content-center">
+              <div class="col-xl-4 col-lg-4 col-12 pb-2 text-center">
+                <a href="mailto:cailin.m.smart@gmail.com"><h6>CONTACT</h6></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      {% endblock %}
+    </div>
+
+</body>
+{% include "includes/inc_page_bottom_scripts.html" %}
+  <script>
+  /**
+   * forEach implementation for Objects/NodeLists/Arrays, automatic type loops and context options
+   *
+   * @private
+   * @author Todd Motto
+   * @link https://github.com/toddmotto/foreach
+   * @param {Array|Object|NodeList} collection - Collection of items to iterate, could be an Array, Object or NodeList
+   * @callback requestCallback      callback   - Callback function for each iteration.
+   * @param {Array|Object|NodeList} scope=null - Object/NodeList/Array that forEach is iterating over, to use as the this value when executing callback.
+   * @returns {}
+   */
+    var forEach=function(t,o,r){if("[object Object]"===Object.prototype.toString.call(t))for(var c in t)Object.prototype.hasOwnProperty.call(t,c)&&o.call(r,t[c],c,t);else for(var e=0,l=t.length;l>e;e++)o.call(r,t[e],e,t)};
+    var hamburgers = document.querySelectorAll(".hamburger");
+    if (hamburgers.length > 0) {
+      forEach(hamburgers, function(hamburger) {
+        hamburger.addEventListener("click", function() {
+          this.classList.toggle("is-active");
+        }, false);
+      });
+    }
+  </script>
+</html>
